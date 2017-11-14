@@ -47,7 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         else{
             locationStart();
 
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,50,this);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,100,1,this);
         }
     }
 
@@ -77,7 +77,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                1000, 1, this);
+                100,1, this);
 
     }
 
@@ -122,9 +122,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         double longitude = location.getLongitude();
 
         LatLng sydney = new LatLng(latitude,longitude);
+        mMap.clear();
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         mMap.setMinZoomPreference(15.0f);
+
 
     }
 
